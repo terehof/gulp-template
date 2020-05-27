@@ -1,0 +1,55 @@
+@import "variables";
+
+
+//@mixin font-lato($weight: false) {
+//    font-family: 'Lato', Arial, sans-serif;
+//    @if $weight { font-weight: $weight; }
+//}
+
+
+@mixin placeholder {
+    &:placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+        @media only screen and #{$desktop} {
+            @content;
+        }
+    }
+    @else if $size == tablet {
+        @media only screen and #{$tablet} {
+            @content;
+        }
+    }
+    @else if $size == mobile {
+        @media only screen and #{$mobile} {
+            @content;
+        }
+    }
+    @else {
+        @media only screen and #{$size} {
+            @content;
+        }
+    }
+}
+// usage:
+//.wrapper {
+//    margin: 0 auto;
+//    width: 100%;
+//    @include screen('tablet') {
+//        width: 90%;
+//    }
+//
+//    @include screen('desktop') {
+//        width: 85%;
+//    }
+//}
