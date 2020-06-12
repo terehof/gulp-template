@@ -104,7 +104,12 @@ gulp.task('watch-dev', ['build-dev'], function () {
             baseDir: "./dist",
             middleware: [historyApiFallback({})]
         },
-        port: 3000
+        port: 3000,
+        ghostMode: {
+            clicks: false,
+            forms: false,
+            scroll: false
+        }
     });
     watch([path.watch.html], function(event, cb) {
         gulp.start('html');
