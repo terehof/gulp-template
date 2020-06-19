@@ -1,4 +1,4 @@
-let app = app || {};
+var app = app || {};
 
 let mobileBreakpoint = 767,
     tabletBreakpoint = 1023;
