@@ -75,6 +75,7 @@ function clean() {
 function html() {
     return gulp
         .src(path.src.html)
+        .pipe(plumber())
         .pipe(fileinclude({
             prefix: '@@',
             basepath: 'src/html_includes/'
